@@ -3,29 +3,14 @@ package at.nebel.scoreboard;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class ScoreboardTest {
+class ScoreboardStartMatchTest extends AbstractScoreboardTest {
 
-  private static final String HOME_TEAM_KEY = "HOM";
-  private static final String AWAY_TEAM_KEY = "AWA";
-  private static final String OTHER_TEAM_KEY = "123";
   private static final String EXPECTED_MATCH_KEY = "#" + HOME_TEAM_KEY + AWAY_TEAM_KEY;
-
-  @Spy private ScoreboardRepository repository = new ScoreboardRepositoryInMemoryImpl();
-  @InjectMocks private ScoreboardServiceImpl scoreboard;
-
-  @BeforeEach
-  void resetMocks() {
-    Mockito.reset(repository);
-  }
 
   @Test
   void startValidMatch() {

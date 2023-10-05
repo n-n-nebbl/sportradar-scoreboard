@@ -1,7 +1,9 @@
 # sportradar-scoreboard
 
 ## requirements
+
 The scoreboard supports the following operations:
+
 1. Start a new match, assuming initial score 0 – 0 and adding it the scoreboard.
    This should capture following parameters:
    a. Home team
@@ -14,6 +16,7 @@ The scoreboard supports the following operations:
    scoreboard.
 
 ## assumptions
+
 * teams can be identified by a string with a length of 3
 * a team can only participate once on the scoreboard
 * a team can not compete against itself

@@ -1,5 +1,7 @@
 package at.nebel.scoreboard;
 
+import java.util.Collections;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -23,5 +25,10 @@ public class ScoreboardServiceImpl implements ScoreboardService {
     if (existingLiveMatch.isPresent()) {
       throw new TeamAlreadyPlayingException(existingLiveMatch.get());
     }
+  }
+
+  @Override
+  public List<LiveMatch> listLiveMatches() {
+    return Collections.emptyList();
   }
 }

@@ -1,5 +1,7 @@
 package at.nebel.scoreboard;
 
+import java.util.List;
+
 public interface ScoreboardService {
   /**
    * Starting a new live match to appear on the scoreboard. <br>
@@ -12,4 +14,10 @@ public interface ScoreboardService {
    * @return identifier for the started match
    */
   String startMatch(String homeTeamKey, String awayTeamKey);
+
+  /**
+   * @return a list of all running live matches ordered first by total score descending then by
+   *     startingTime descending
+   */
+  List<LiveMatch> listLiveMatches();
 }
