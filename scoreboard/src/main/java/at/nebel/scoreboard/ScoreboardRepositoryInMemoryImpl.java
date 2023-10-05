@@ -1,6 +1,7 @@
 package at.nebel.scoreboard;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,16 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
 
   @Override
   public List<LiveMatch> listLiveMatches() {
-    return matches.stream().toList();
+    return matches.stream()
+        .sorted(compareByTotalScoreDesc().thenComparing(compareByStartingTimeDesc()))
+        .toList();
+  }
+
+  private static Comparator<LiveMatch> compareByStartingTimeDesc() {
+    return Comparator.comparing(LiveMatch::getStartedAt).reversed();
+  }
+
+  private static Comparator<LiveMatch> compareByTotalScoreDesc() {
+    return Comparator.comparing(LiveMatch::getScore, new MatchScoreComparator().reversed());
   }
 }
