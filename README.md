@@ -20,4 +20,5 @@ The scoreboard supports the following operations:
 * teams can be identified by a string with a length of 3
 * a team can only participate once on the scoreboard
 * a team can not compete against itself
-
+* there will be a framework checking the validation annotations --> no manual check if parameters or attributes are correct
+* an actual implementation of a repository would make use of transactions --> no special handling for concurrent access. would be to complex for this case and could be done e.g. with locks.

@@ -42,4 +42,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
     repository.updateLiveMatch(liveMatch);
   }
+
+  @Override
+  public void finishMatch(String matchKey) {}
 }

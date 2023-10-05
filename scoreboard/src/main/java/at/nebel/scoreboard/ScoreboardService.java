@@ -27,4 +27,10 @@ public interface ScoreboardService {
    * @param newScore the new score of the match
    */
   void updateScore(String matchKey, MatchScore newScore);
+
+  /**
+   * Finish a match by removing it from the scoreboard.
+   * @param matchKey the identifier of the match which ended
+   */
+  void finishMatch(String matchKey);
 }
