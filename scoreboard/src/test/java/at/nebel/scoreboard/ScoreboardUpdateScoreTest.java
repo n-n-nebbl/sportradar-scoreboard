@@ -1,6 +1,7 @@
 package at.nebel.scoreboard;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -28,5 +29,11 @@ class ScoreboardUpdateScoreTest extends AbstractScoreboardTest {
     assertThat(updatedLiveMatch.getKey()).isEqualTo(matchKey);
     assertThat(updatedLiveMatch.getScore().getHomeTeamScore()).isEqualTo(newHomeScore);
     assertThat(updatedLiveMatch.getScore().getAwayTeamScore()).isEqualTo(newAwayScore);
+  }
+
+  @Test
+  void verifyMatchNotFoundErrorWhenUpdatingScore() {
+    var newScore = new MatchScore(1, 0);
+    assertThrows(MatchNotFoundException.class, () -> scoreboard.updateScore("#123321", newScore));
   }
 }
