@@ -30,7 +30,7 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
   }
 
   @Override
-  public List<LiveMatch> listLiveMatches() {
+  public List<LiveMatch> listLiveMatchesOrderedByTotalScoreDescStartingTimeDesc() {
     return matches.stream()
         .sorted(compareByTotalScoreDesc().thenComparing(compareByStartingTimeDesc()))
         .toList();

@@ -28,7 +28,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
   @Override
   public List<LiveMatch> listLiveMatches() {
-    return repository.listLiveMatches();
+    return repository.listLiveMatchesOrderedByTotalScoreDescStartingTimeDesc();
   }
 
   @Override

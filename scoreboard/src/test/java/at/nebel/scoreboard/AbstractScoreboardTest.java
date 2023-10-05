@@ -5,7 +5,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 
-public class AbstractScoreboardTest {
+public abstract class AbstractScoreboardTest {
   protected static final String HOME_TEAM_KEY = "HOM";
   protected static final String AWAY_TEAM_KEY = "AWA";
   protected static final String OTHER_TEAM_KEY = "123";
