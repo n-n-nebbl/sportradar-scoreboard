@@ -12,5 +12,7 @@ public interface ScoreboardRepository {
 
   void updateLiveMatch(LiveMatch liveMatch);
 
-  Optional<LiveMatch> findMatch(String matchKey);
+  Optional<LiveMatch> findLiveMatch(String matchKey);
+
+  void removeLiveMatch(String matchKey);
 }

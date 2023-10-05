@@ -33,7 +33,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
   @Override
   public void updateScore(String matchKey, MatchScore newScore) {
-    var liveMatchOpt = repository.findMatch(matchKey);
+    var liveMatchOpt = repository.findLiveMatch(matchKey);
     if (liveMatchOpt.isEmpty()) {
       throw new MatchNotFoundException(matchKey, "Could not find running match to update score!");
     }
@@ -45,7 +45,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
   @Override
   public void finishMatch(String matchKey) {
-    var liveMatchOpt = repository.findMatch(matchKey);
+    var liveMatchOpt = repository.findLiveMatch(matchKey);
     if (liveMatchOpt.isEmpty()) {
       throw new MatchNotFoundException(matchKey, "Could not find running match to finish!");
     }
