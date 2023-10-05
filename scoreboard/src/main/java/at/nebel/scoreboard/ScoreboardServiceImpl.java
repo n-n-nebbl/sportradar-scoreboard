@@ -32,5 +32,12 @@ public class ScoreboardServiceImpl implements ScoreboardService {
   }
 
   @Override
-  public void updateScore(String matchKey, MatchScore newScore) {}
+  public void updateScore(String matchKey, MatchScore newScore) {
+    var liveMatchOpt = repository.findMatch(matchKey);
+
+    var liveMatch = liveMatchOpt.get();
+    liveMatch.updateScore(newScore);
+
+    repository.updateLiveMatch(liveMatch);
+  }
 }

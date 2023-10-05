@@ -45,5 +45,13 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
   }
 
   @Override
-  public void updateLiveMatch(LiveMatch liveMatch) {}
+  public void updateLiveMatch(LiveMatch liveMatch) {
+    matches.removeIf(m -> m.getKey().equals(liveMatch.getKey()));
+    matches.add(liveMatch);
+  }
+
+  @Override
+  public Optional<LiveMatch> findMatch(String matchKey) {
+    return matches.stream().filter(m -> m.getKey().equals(matchKey)).findAny();
+  }
 }
