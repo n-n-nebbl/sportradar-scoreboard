@@ -34,7 +34,9 @@ public class ScoreboardServiceImpl implements ScoreboardService {
   @Override
   public void updateScore(String matchKey, MatchScore newScore) {
     var liveMatchOpt = repository.findMatch(matchKey);
-
+    if (liveMatchOpt.isEmpty()) {
+      throw new MatchNotFoundException(matchKey, "Could not find running Match to update score!");
+    }
     var liveMatch = liveMatchOpt.get();
     liveMatch.updateScore(newScore);
 
