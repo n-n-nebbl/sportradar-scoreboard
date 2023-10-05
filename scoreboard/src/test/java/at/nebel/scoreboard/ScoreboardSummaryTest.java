@@ -40,7 +40,7 @@ class ScoreboardSummaryTest extends AbstractScoreboardTest {
     var matchKeyEarlier = scoreboard.startMatch(HOME_TEAM_KEY, AWAY_TEAM_KEY);
     var matchKeyLater = scoreboard.startMatch("123", "321");
 
-    //    scoreboard.updateScore(matchKeyEarlier, new MatchScore(1, 0));
+    scoreboard.updateScore(matchKeyEarlier, new MatchScore(1, 0));
 
     var summary = scoreboard.listLiveMatches();
 
