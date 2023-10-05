@@ -13,7 +13,7 @@ class ScoreboardTest {
   private static final String AWAY_TEAM_KEY = "AWA";
   private static final String EXPECTED_MATCH_KEY = "#" + HOME_TEAM_KEY + AWAY_TEAM_KEY;
 
-  @Mock private ScoreboardServiceImpl scoreboard;
+  private ScoreboardServiceImpl scoreboard = new ScoreboardServiceImpl();
 
   @Test
   void startValidMatch() {

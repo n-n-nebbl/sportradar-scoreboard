@@ -4,6 +4,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
   @Override
   public String startMatch(String homeTeamKey, String awayTeamKey) {
-    return null;
+    var newMatch = new LiveMatch(homeTeamKey, awayTeamKey);
+    return newMatch.getKey();
   }
 }
