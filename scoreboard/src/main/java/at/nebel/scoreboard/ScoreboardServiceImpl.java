@@ -49,5 +49,6 @@ public class ScoreboardServiceImpl implements ScoreboardService {
     if (liveMatchOpt.isEmpty()) {
       throw new MatchNotFoundException(matchKey, "Could not find running match to finish!");
     }
+    repository.removeLiveMatch(matchKey);
   }
 }

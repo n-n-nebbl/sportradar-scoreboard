@@ -56,5 +56,7 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
   }
 
   @Override
-  public void removeLiveMatch(String matchKey) {}
+  public void removeLiveMatch(String matchKey) {
+    matches.removeIf(m -> m.getKey().equals(matchKey));
+  }
 }
