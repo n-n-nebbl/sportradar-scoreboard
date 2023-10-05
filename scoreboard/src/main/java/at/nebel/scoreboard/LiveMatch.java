@@ -1,11 +1,17 @@
 package at.nebel.scoreboard;
 
+import java.time.Instant;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 
+@Getter
 public class LiveMatch {
-  @Getter private final String homeTeamKey;
-  @Getter private final String awayTeamKey;
+  private final String homeTeamKey;
+  private final String awayTeamKey;
+
+  private MatchScore score = new MatchScore(0, 0);
+
+  private final Instant startedAt = Instant.now();
 
   public LiveMatch(@NotBlank String homeTeamKey, @NotBlank String awayTeamKey) {
     if (homeTeamKey.equalsIgnoreCase(awayTeamKey)) {

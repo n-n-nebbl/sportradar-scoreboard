@@ -27,4 +27,9 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
                     || match.getAwayTeamKey().equalsIgnoreCase(teamKey))
         .findAny();
   }
+
+  @Override
+  public List<LiveMatch> listLiveMatches() {
+    return matches.stream().toList();
+  }
 }

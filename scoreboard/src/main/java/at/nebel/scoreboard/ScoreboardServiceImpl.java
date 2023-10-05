@@ -29,6 +29,6 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
   @Override
   public List<LiveMatch> listLiveMatches() {
-    return Collections.emptyList();
+    return repository.listLiveMatches();
   }
 }
