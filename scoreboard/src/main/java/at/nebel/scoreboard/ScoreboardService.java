@@ -20,4 +20,11 @@ public interface ScoreboardService {
    *     startingTime descending
    */
   List<LiveMatch> listLiveMatches();
+
+  /**
+   * Update the score of a running match
+   * @param matchKey the match to update
+   * @param newScore the new score of the match
+   */
+  void updateScore(String matchKey, MatchScore newScore);
 }

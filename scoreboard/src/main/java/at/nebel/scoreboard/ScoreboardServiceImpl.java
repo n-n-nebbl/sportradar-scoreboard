@@ -1,6 +1,5 @@
 package at.nebel.scoreboard;
 
-import java.util.Collections;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +12,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
   public String startMatch(String homeTeamKey, String awayTeamKey) {
     var newMatch = new LiveMatch(homeTeamKey, awayTeamKey);
     verifyTeamsNotLiveYet(newMatch);
-    repository.storeLiveMatch(newMatch);
+    repository.createLiveMatch(newMatch);
     return newMatch.getKey();
   }
 
@@ -31,4 +30,7 @@ public class ScoreboardServiceImpl implements ScoreboardService {
   public List<LiveMatch> listLiveMatches() {
     return repository.listLiveMatches();
   }
+
+  @Override
+  public void updateScore(String matchKey, MatchScore newScore) {}
 }

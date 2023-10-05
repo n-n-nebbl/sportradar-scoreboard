@@ -15,7 +15,7 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
   private final List<LiveMatch> matches = new ArrayList<>();
 
   @Override
-  public void storeLiveMatch(LiveMatch liveMatch) {
+  public void createLiveMatch(LiveMatch liveMatch) {
     matches.add(liveMatch);
   }
 
@@ -43,4 +43,7 @@ public class ScoreboardRepositoryInMemoryImpl implements ScoreboardRepository {
   private static Comparator<LiveMatch> compareByTotalScoreDesc() {
     return Comparator.comparing(LiveMatch::getScore, new MatchScoreComparator().reversed());
   }
+
+  @Override
+  public void updateLiveMatch(LiveMatch liveMatch) {}
 }

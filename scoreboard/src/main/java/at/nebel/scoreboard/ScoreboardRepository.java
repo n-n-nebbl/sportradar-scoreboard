@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ScoreboardRepository {
-  void storeLiveMatch(LiveMatch liveMatch);
+  void createLiveMatch(LiveMatch liveMatch);
 
   Optional<LiveMatch> findLiveMatchForTeam(String teamKey);
 
   List<LiveMatch> listLiveMatches();
+
+  void updateLiveMatch(LiveMatch liveMatch);
 }
